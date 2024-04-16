@@ -3,6 +3,7 @@ package vn.edu.fpt.lab.core.menu;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import vn.edu.fpt.lab.core.InputHandler;
 
 public final class Menu {
 
@@ -23,5 +24,14 @@ public final class Menu {
         options.forEach(option -> {
             System.out.println(options.indexOf(option) + 1 + ". " + option);
         });
+    }
+
+    public int getChoice() throws IllegalArgumentException {
+        int choice = InputHandler.getInteger("Select an option: ");
+        if (choice < 1 || choice > options.size()) {
+            throw new IllegalArgumentException(
+                    ">> Error: Unsupported operation");
+        }
+        return choice;
     }
 }
