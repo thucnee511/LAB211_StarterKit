@@ -1,5 +1,7 @@
 package vn.edu.fpt.lab.repositories;
 
-public interface IITem {
-    
+@FunctionalInterface
+public interface IITem<T> {
+
+    T parseData(String data);
 }
